@@ -1,5 +1,6 @@
 module.exports = {
   mode: 'spa',
+  plugins: ['~/plugins/auth0.js'],
   env: {
     auth0ClientID: process.env.auth0ClientID,
     auth0Domain:process.env.auth0Domain
