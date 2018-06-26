@@ -1,5 +1,9 @@
 module.exports = {
   mode: 'spa',
+  env: {
+    auth0ClientID: process.env.auth0ClientID,
+    auth0Domain:process.env.auth0Domain
+  },
   /*
   ** Headers of the page
   */
