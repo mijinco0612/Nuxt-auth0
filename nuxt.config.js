@@ -1,5 +1,10 @@
 module.exports = {
   mode: 'spa',
+  plugins: ['~/plugins/auth0.js'],
+  env: {
+    auth0ClientID: process.env.auth0ClientID,
+    auth0Domain:process.env.auth0Domain
+  },
   /*
   ** Headers of the page
   */
@@ -11,7 +16,11 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js & auth0 demo app' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet',
+        href: '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' },
+      { rel: 'stylesheet',
+        href: '//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css'}
     ]
   },
   /*
