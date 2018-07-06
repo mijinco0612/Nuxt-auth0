@@ -1,19 +1,13 @@
-module.exports = {
-  mode: 'spa',
-  plugins: ['~/plugins/auth0.js'],
-  env: {
-    auth0ClientID: process.env.auth0ClientID,
-    auth0Domain:process.env.auth0Domain
-  },
+const config = {
   /*
   ** Headers of the page
   */
   head: {
-    title: 'nuxt-auth0',
+    title: 'nuxt_auth0',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js & auth0 demo app' }
+      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -44,5 +38,24 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  mode: 'spa',
+  plugins: ['~/plugins/auth0.js'],
+  env: {
+    auth0ClientID: process.env.auth0ClientID,
+    auth0Domain:process.env.auth0Domain
+  },
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
+  ]
 }
+
+if (process.env.NODE_ENV === 'development') {
+  config.proxy = {
+    '/api': 'http://localhost:28080'
+  }
+
+}
+
+module.exports = config
