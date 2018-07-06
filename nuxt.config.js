@@ -1,7 +1,4 @@
 const config = {
-  /*
-  ** Headers of the page
-  */
   head: {
     title: 'nuxt_auth0',
     meta: [
@@ -17,17 +14,8 @@ const config = {
         href: '//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css'}
     ]
   },
-  /*
-  ** Customize the progress bar color
-  */
   loading: { color: '#3B8070' },
-  /*
-  ** Build configuration
-  */
   build: {
-    /*
-    ** Run ESLint on save
-    */
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
