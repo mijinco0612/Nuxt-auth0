@@ -23,7 +23,6 @@
           <button class="button is-link is-outlined" @click="pingPrivate">ping private</button>
         </p>
       </div>
-
       <div class="box">
         <article class="media">
           <div class="media-content">
@@ -33,7 +32,6 @@
           </div>
         </article>
       </div>
-
     </div>
   </section>
 </template>
@@ -52,6 +50,7 @@
         this.message = returnMessage;
       },
       async pingPrivate() {
+        this.$axios.setHeader('Authorization', 'Bearer ' + this.$auth0.getIdToken());
         const returnMessage = await this.$axios.$get('/api/v1/private');
         this.message = returnMessage;
       }
