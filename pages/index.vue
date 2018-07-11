@@ -22,6 +22,12 @@
         <p class="control">
           <button class="button is-link is-outlined" @click="pingPrivate">ping private</button>
         </p>
+        <p class="control">
+          <button class="button is-link is-outlined" @click="pingEcho(echoMessage)">ping echo</button>
+        </p>
+      </div>
+      <div class="box">
+        <input class="echoInput" v-model="echoMessage">
       </div>
       <div class="box">
         <article class="media">
@@ -52,6 +58,16 @@
       async pingPrivate() {
         this.$axios.setHeader('Authorization', 'Bearer ' + this.$auth0.getIdToken());
         const returnMessage = await this.$axios.$get('/api/v1/private');
+        this.message = returnMessage;
+      },
+      async pingEcho(echoMessage) {
+        this.$axios.setHeader('Authorization', 'Bearer ' + this.$auth0.getIdToken());
+        const returnMessage = await this.$axios.$get('/api/v1/echo',
+          {
+            params: {
+              echoMessage: echoMessage
+            }
+          });
         this.message = returnMessage;
       }
     }
