@@ -13,7 +13,10 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.3.1",
     "@nuxtjs/font-awesome": "^1.0.3",
+    "@nuxtjs/proxy": "^1.2.4",
+    "@nuxtjs/toast": "^3.0.1",
     "@nuxtjs/vuetify": "^0.4.2",
     "auth0-lock": "^11.7.2",
     "jwt-decode": "^2.2.0",
@@ -22,6 +25,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
+    "cross-env": "^5.2.0",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",

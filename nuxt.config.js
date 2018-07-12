@@ -28,16 +28,26 @@ const config = {
     }
   },
   mode: 'spa',
-  plugins: ['~/plugins/auth0.js'],
+  plugins: [
+    '~/plugins/auth0.js',
+    '~/plugins/axios.js'
+  ],
   env: {
     auth0ClientID: process.env.auth0ClientID,
     auth0Domain:process.env.auth0Domain
   },
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/proxy'
-  ]
+    '@nuxtjs/proxy',
+    '@nuxtjs/toast'
+  ],
+  toast: {
+    position: 'top-center',
+    duration: 2000
+  }
 }
+
+module.exports = config
 
 if (process.env.NODE_ENV === 'development') {
   config.proxy = {
@@ -45,5 +55,3 @@ if (process.env.NODE_ENV === 'development') {
   }
 
 }
-
-module.exports = config
