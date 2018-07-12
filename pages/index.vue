@@ -45,7 +45,8 @@
 <script>
   export default {
     data: () => ({
-      message: null
+      message: null,
+      echoMessage: ''
     }),
     methods: {
       loggedIn() {
@@ -56,12 +57,10 @@
         this.message = returnMessage;
       },
       async pingPrivate() {
-        this.$axios.setHeader('Authorization', 'Bearer ' + this.$auth0.getIdToken());
         const returnMessage = await this.$axios.$get('/api/v1/private');
         this.message = returnMessage;
       },
       async pingEcho(echoMessage) {
-        this.$axios.setHeader('Authorization', 'Bearer ' + this.$auth0.getIdToken());
         const returnMessage = await this.$axios.$get('/api/v1/echo',
           {
             params: {
